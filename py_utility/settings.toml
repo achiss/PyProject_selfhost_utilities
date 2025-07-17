@@ -1,0 +1,15 @@
+[password]          # Password settings
+min_length = 8
+max_length = 64
+hash_length = 60
+
+[salt]              # Salt setting
+default_iteration = 12
+min_iteration = 1
+max_iteration = 31
+default_prefix = 'utf-8'
+allowed_prefix = ['utf-8', 'utf-16']
+
+[encoding]          # Encoding type settings
+default_type = '2b'
+allowed_type = ['2a', '2b', '2y']
