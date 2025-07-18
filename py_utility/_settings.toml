@@ -7,9 +7,9 @@ hash_length = 60
 default_iteration = 12
 min_iteration = 1
 max_iteration = 31
-default_prefix = 'utf-8'
-allowed_prefix = ['utf-8', 'utf-16']
+default_prefix = '2b'
+allowed_prefix = ['2a', '2b', '2y']
 
 [encoding]          # Encoding type settings
-default_type = '2b'
-allowed_type = ['2a', '2b', '2y']
+default_type = 'utf-8'
+allowed_type = ['utf-8', 'utf-16']

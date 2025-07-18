@@ -7,7 +7,8 @@ from src.password_processor.core.base_password_encoding import base_password_has
 class PasswordProcessor:
     @staticmethod
     def hashing_password(password_string: str, iteration_number: int, minimal_range_value: int,
-                         maximal_range_value: int) -> bytes:
+                         maximal_range_value: int, prefix_string: str, allowed_prefix: List[str],
+                         ) -> bytes:
 
         from src.validator import Validator
 
@@ -16,7 +17,6 @@ class PasswordProcessor:
             for validator in [
                 lambda: Validator.check_data_type(value=minimal_range_value, data_type=int),
                 lambda: Validator.check_data_type(value=maximal_range_value, data_type=int),
-                lambda: Validator.check_range_value(value=iteration_number, minimal_value=minimal_range_value, maximal_value=maximal_range_value)
             ]:
                 flag, message = validator()
                 if not flag:
