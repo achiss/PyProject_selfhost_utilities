@@ -168,8 +168,4 @@ def verify_range(value_length: int | float,
 
 
 if __name__ == '__main__':
-    value_1 = 12
-    value_limit_1 = 32
-    value_limit_2 = 110
-
-    print(verify_range(value_1, value_limit_1, value_limit_2))
+    pass
