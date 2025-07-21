@@ -1,17 +1,20 @@
 from typing import Tuple
-from typing import overload
+from uuid import UUID
+from re import Pattern, IGNORECASE
+from re import compile
 
-from src.core.processing_id.regex import REGEX_UUID4, REGEX_UUID5
+REGEX_UUID4: Pattern = compile(
+    pattern=r'^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$',
+    flags=IGNORECASE
+)
+
+REGEX_UUID5: Pattern = compile(
+    pattern=r'^[a-f0-9]{8}-[a-f0-9]{4}-5[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$',
+    flags=IGNORECASE
+)
 
 
-@overload
-def verify_uuid(value: str, is_initial: bool) -> Tuple[bool, None | str]: ...
-
-@overload
-def verify_uuid(value: str) -> Tuple[bool, None | str]: ...
-
-def verify_uuid(value: str = None,
-                is_initial: bool = False) -> Tuple[bool, None | str]:
+def verify_uuid(value: str, is_initial: bool) -> Tuple[bool, None | str]:
 
     if is_initial:
         try:
@@ -19,7 +22,7 @@ def verify_uuid(value: str = None,
             if flag:
                 return True, None
 
-            return False, 'is not a valid UUID'
+            return False, None
 
         except Exception as e:
             return False, f'initial UUID verification unexpected error: {e}'
@@ -30,7 +33,7 @@ def verify_uuid(value: str = None,
             if flag:
                 return True, None
             
-            return False, 'is not a valid UUID'
+            return False, None
         
         except Exception as e:
             return False, f'UUID verification unexpected error: {e}'

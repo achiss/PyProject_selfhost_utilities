@@ -12,4 +12,4 @@ def check_arg_domain(value: UUID | str) -> Tuple[bool, UUID | str]:
 		return True, value
 	
 	else:
-		return False, f'incorrect data type: {type(value).__name__}'
+		return False, f'parameter (domain) incorrect data type: {type(value).__name__}'

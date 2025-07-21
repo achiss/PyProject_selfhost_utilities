@@ -28,6 +28,7 @@ def verify_data_type(value_check: Any,
 
 def verify_length(value_length: int | float,
                   required_length: int | float) -> Tuple[bool, None | str]:
+
     """
     Args:
         value_length: the value being checked
