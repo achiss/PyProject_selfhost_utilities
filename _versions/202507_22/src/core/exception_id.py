@@ -1,0 +1,2 @@
+class ExceptionID(Exception):
+    pass

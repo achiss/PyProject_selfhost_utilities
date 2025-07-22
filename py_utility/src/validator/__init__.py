@@ -1,1 +1,1 @@
-from src.validator.general_validation import GeneralValidation
+from src.validator.validator_common import ValidatorCommon

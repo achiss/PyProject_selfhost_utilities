@@ -7,7 +7,8 @@
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_15" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_18" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_20" />
-      <excludeFolder url="file://$MODULE_DIR$/_versions/py_utility" />
+      <excludeFolder url="file://$MODULE_DIR$/_versions/202507_21" />
+      <excludeFolder url="file://$MODULE_DIR$/_versions/202507_22" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.13 (PyUtilityVenv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -1,0 +1,2 @@
+class ExceptionSecret(Exception):
+    pass
