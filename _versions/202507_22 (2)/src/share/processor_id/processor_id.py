@@ -1,8 +1,8 @@
 from uuid import UUID
 
-from src.share.processor_id.interface import IProcessorID
-from src.share.processor_id.core.generation_uid import GenerationUid
-from src.share.processor_id.core.verification_uid import VerificationUid
+from src.share.processor_id import IProcessorID
+from src.share.processor_id import generate
+from src.share.processor_id import VerificationUid
 
 from src.validator import ValidatorCommon
 from src.core import ExceptionID
@@ -38,7 +38,7 @@ class ProcessorID(IProcessorID):
                 for arg in args:
                     object_data += arg
 
-            flag, action = GenerationUid.generate(domain=domain, object_data=object_data)
+            flag, action = generate(domain=domain, object_data=object_data)
             if not flag:
                 raise RuntimeError(action)
 

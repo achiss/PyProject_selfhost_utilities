@@ -1,20 +1,20 @@
-from functools import singledispatch
+from functools import singledispatchmethod
 from typing import Tuple, Any
 from uuid import UUID
 
-from src.share.processor_id.interface import IVerificationUid
+from src.share.processor_id import IVerificationUid
 
 from data.instruction import REGEX_UUID4, REGEX_UUID5
 
 
 class VerificationUid(IVerificationUid):
+    @singledispatchmethod
     @classmethod
-    @singledispatch
     def validate(cls, uid_number: str | UUID = None) -> Tuple[bool, None | str]:
         return False, cls.__get_message_unsupported_error()
 
-    @classmethod
     @validate.register
+    @classmethod
     def _(cls, uid_number: str) -> Tuple[bool, None | str]:
         try:
             if cls.__verify_regex_uuid4(uid_number) or cls.__verify_regex_uuid5(uid_number):
@@ -25,8 +25,8 @@ class VerificationUid(IVerificationUid):
         except Exception as e:
             return False, cls.__get_message_unexpected_error(e)
 
-    @classmethod
     @validate.register
+    @classmethod
     def _(cls, uid_number: UUID) -> Tuple[bool, None | str]:
         try:
             uid_number: str = str(uid_number)
