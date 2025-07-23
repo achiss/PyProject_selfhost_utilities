@@ -2,10 +2,8 @@ from typing import overload
 from typing import Tuple
 from uuid import UUID
 
-from src.app_model.processor_id.share.generate_uuid4 import generate_uuid4
+from src import generate_uuid4
 from src.app_model.processor_id.share.generate_uuid5 import generate_uuid5
-
-from src.validator import Validator
 
 
 @overload
@@ -26,5 +24,4 @@ def generate_id(domain: UUID = None,
 		return generate_uuid4()
 	
 	else:
-		
 		return generate_uuid5(domain, object_name)

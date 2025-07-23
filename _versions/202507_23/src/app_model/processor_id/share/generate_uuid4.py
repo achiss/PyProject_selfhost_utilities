@@ -4,6 +4,9 @@ from uuid import uuid4
 
 
 def generate_uuid4() -> Tuple[bool, UUID | str, None | str]:
+
+	from data.message
+
 	try:
 		_uid = uuid4()
 		return True, _uid, None

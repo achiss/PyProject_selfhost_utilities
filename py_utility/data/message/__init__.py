@@ -1,1 +1,0 @@
-from data.message.from_validator import get_message_data_type_error, get_message_empty_list_error
