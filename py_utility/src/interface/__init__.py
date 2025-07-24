@@ -1,0 +1,1 @@
+from src.interface.base_exception_model_protocol import BaseExceptionModelProtocol
