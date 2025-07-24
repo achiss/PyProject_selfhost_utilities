@@ -25,9 +25,12 @@ class ProcessorID(ProcessorIDProtocol):
             - converting ID data type (if received "UUID" return "str"; if received "str" return "UUID")
 
         Raises:
-            ExceptionID: custom exception, include data:
+            ExceptionID: custom exception, including:
+            
                 - original exception type
+                
                 - exception message
+                
                 - exception timestamp
         """
 

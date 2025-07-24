@@ -2,7 +2,6 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/py_utility" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/_versions" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_15" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_18" />
@@ -12,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_22 (2)" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_22 (3)" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_23" />
+      <excludeFolder url="file://$MODULE_DIR$/_versions/202507.24" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.13 (PyUtilityVenv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
