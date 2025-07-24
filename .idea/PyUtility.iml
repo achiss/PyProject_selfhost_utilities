@@ -13,7 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_22 (3)" />
       <excludeFolder url="file://$MODULE_DIR$/_versions/202507_23" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13 (PyProjectUtilitiesVenv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (PyUtilityVenv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

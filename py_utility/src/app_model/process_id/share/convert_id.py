@@ -20,15 +20,14 @@ def convert_id(uuid_value: UUID | str = None) -> Tuple[bool, str | UUID, None | 
             return True, _data, None
 
         except Exception as e:
-            return False, f'unexpected error: failed to converse "UUID" to "str" type - {e}', type(e)
+            _message: str = f'unexpected error: failed to converse "UUID" to "str" type - {e}'
+            return False, _message, type(e)
 
-    elif isinstance(uuid_value, str):
+    else:
         try:
             _data: UUID = UUID(uuid_value)
             return True, _data, None
 
         except Exception as e:
-            return False, f'unexpected error: failed to converse "str" to "UUID" type - {e}', type(e)
-
-    else:
-        return False, f'invalid data type: expected "str or UUID", got "{type(uuid_value).__name__}"', TypeError
+            _message: str = f'unexpected error: failed to converse "str" to "UUID" type - {e}'
+            return False, _message, type(e)

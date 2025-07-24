@@ -5,14 +5,14 @@ from uuid import uuid4, uuid5
 
 
 @overload
-def generate_id() -> Tuple[bool, UUID | str]: ...
+def generate_uid() -> Tuple[bool, UUID | str]: ...
 
 
 @overload
-def generate_id(domain: UUID, object_string: bytes) -> Tuple[bool, UUID | str]: ...
+def generate_uid(domain: UUID, object_string: bytes) -> Tuple[bool, UUID | str]: ...
 
 
-def generate_id(domain: UUID = None, object_string: bytes = None) -> Tuple[bool, UUID | str]:
+def generate_uid(domain: UUID = None, object_string: bytes = None) -> Tuple[bool, UUID | str]:
 	""" Base method: id generation """
 	
 	if not domain:
