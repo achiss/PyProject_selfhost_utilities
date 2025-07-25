@@ -1,34 +1,29 @@
-from typing import Type
-from datetime import datetime
-
-from src.interface import BaseExceptionModelProtocol
+from dataclasses import dataclass
+from typing import List
 
 
-class BaseExceptionModel(BaseExceptionModelProtocol, Exception):
-	__slots__ = ('__custom_exception', '__original_exception', '__exception_message', '__exception_timestamp')
-	
-	def __init__(self, custom_exception: Type[Exception], original_exception: Type[Exception],
-	             exception_message: str) -> None:
+@dataclass(frozen=True, slots=True)
+class BaseExceptionModel:
+	custom_exception: str
+	original_exception: str
+	exception_message: str | List[str]
+	exception_timestamp: str
 
-		self.__custom_exception = self.__get_exception_name(custom_exception)
-		self.__original_exception = self.__get_exception_name(original_exception)
-		self.__exception_message = exception_message
-		self.__exception_timestamp = self.__get_timestamp()
-	
-	@staticmethod
-	def __get_exception_name(exception_type: Type[Exception]) -> str: return exception_type.__name__
-	
-	@staticmethod
-	def __get_timestamp() -> str: return datetime.now().isoformat()
-	
 	def __str__(self) -> str:
 		return (f'\n---------\n'
-		        f'Custom Exception: {self.__custom_exception}\n'
-		        f'Original Exception: {self.__original_exception}\n'
-		        f'Exception Message: {self.__exception_message}\n'
-		        f'Exception Timestamp: {self.__exception_timestamp}\n'
-		        f'---------')
+				f'Exception type: {self.custom_exception}\n'
+				f'Original exception type: {self.original_exception}\n'
+				f'Message: {BaseExceptionModel.__generate_message(self.exception_message)}\n'
+				f'Timestamp: {self.exception_timestamp}\n'
+				f'---------\n')
 
+	@staticmethod
+	def __generate_message(message: str | List[str]) -> str:
+		if isinstance(message, str):
+			return message
 
-if __name__ == '__main__':
-	pass
+		elif isinstance(message, list):
+			return ''.join(f'\n- {line}' for line in message)
+
+		else:
+			return str(message)

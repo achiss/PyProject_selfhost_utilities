@@ -2,11 +2,10 @@ from typing import Type, Any, Tuple
 
 
 def check_data_type(*data_type: Type[Any], checked_value: Any) -> Tuple[bool, str | None, Type[Exception] | None]:
-	
-	from src.share import EMPTY_LIST_ERROR_TEMPLATE, TYPE_ERROR_TEMPLATE
-	
+
 	if len(data_type) == 0:
-		return False, EMPTY_LIST_ERROR_TEMPLATE.format('data type'), ValueError
+		_message: str = f'incorrect list of values data type - is empty, should be defined'
+		return False, _message, ValueError
 	
 	if any(isinstance(checked_value, argument_data_type) for argument_data_type in data_type):
 		return True, None, None
@@ -14,5 +13,6 @@ def check_data_type(*data_type: Type[Any], checked_value: Any) -> Tuple[bool, st
 	else:
 		expected_types: str = ', '.join(data_type.__name__ for data_type in data_type)
 		received_type: str = str(type(checked_value).__name__)
-		
-		return False, TYPE_ERROR_TEMPLATE.format(expected_types, received_type), TypeError
+
+		_message: str = f'invalid data type - expected {expected_types}, got {received_type}'
+		return False, _message, TypeError
