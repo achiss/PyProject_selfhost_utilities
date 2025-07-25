@@ -15,7 +15,7 @@ class ExceptionID(BaseExceptionModel):
 
 	@staticmethod
 	def __get_timestamp() -> str:
-		from data.fromat import DATETIME_ISO
+		from data.format import DATETIME_ISO
 
 		return datetime.now().strftime(format=DATETIME_ISO)
 
