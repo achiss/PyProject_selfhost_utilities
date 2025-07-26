@@ -1,13 +1,13 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 
 @dataclass(frozen=True, slots=True)
-class BaseExceptionModel:
-	custom_exception: str
-	original_exception: str
-	exception_message: str | List[str]
-	exception_timestamp: str
+class BaseExceptionModel(Exception):
+	custom_exception: str = field(default = None)
+	original_exception: str = field(default = None)
+	exception_message: str | List[str] = field(default = None)
+	exception_timestamp: str = field(default = None)
 
 	def __str__(self) -> str:
 		return (f'\n---------\n'
@@ -27,3 +27,7 @@ class BaseExceptionModel:
 
 		else:
 			return str(message)
+
+
+if __name__ == '__main__':
+	print(BaseExceptionModel())
