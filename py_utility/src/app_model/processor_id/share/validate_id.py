@@ -1,7 +1,7 @@
 from uuid import UUID
 from typing import Tuple, Type
 
-from  src.app_model.processor_id.share.base_validation_method import check_id_length, check_id, check_id_v4, check_id_v5
+from src.app_model.processor_id.share.base_method.validate_data import check_id_length, check_id, check_id_v4, check_id_v5
 
 
 BASE_MESSAGE: str = 'method validate ID failed'

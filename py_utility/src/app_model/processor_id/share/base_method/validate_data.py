@@ -9,10 +9,10 @@ def check_id_type(value: UUID | str) -> bool: return bool(isinstance(value, (UUI
 def check_id_length(value: UUID | str) -> bool: return len(value) == 36
 
 
-def check_id(value: str) -> bool: return bool(REGEX_UUID.fullmatch(value))
+def check_uuid(value: str) -> bool: return bool(REGEX_UUID.fullmatch(value))
 
 
-def check_id_v4(value: UUID | str) -> bool: return bool(REGEX_UUID4.fullmatch(value))
+def check_uuid_v4(value: UUID | str) -> bool: return bool(REGEX_UUID4.fullmatch(value))
 
 
-def check_id_v5(value: UUID | str) -> bool: return bool(REGEX_UUID5.fullmatch(value))
+def check_uuid_v5(value: UUID | str) -> bool: return bool(REGEX_UUID5.fullmatch(value))

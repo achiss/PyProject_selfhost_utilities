@@ -2,7 +2,7 @@ from uuid import UUID
 from typing import overload
 from typing import Tuple, Type
 
-from src.app_model.processor_id.share.base_generation_method import get_uuid4, get_uuid5
+from src.app_model.processor_id.share.base_method.generate_id_versions import get_uuid4, get_uuid5
 
 
 BASE_MESSAGE: str = 'method generate ID failed'

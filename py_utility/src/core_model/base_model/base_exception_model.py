@@ -1,33 +1,21 @@
 from dataclasses import dataclass, field
-from typing import List
+from datetime import datetime
+
+from src.interface import IBaseExceptionModel
 
 
-@dataclass(frozen=True, slots=True)
-class BaseExceptionModel(Exception):
-	custom_exception: str = field(default = None)
-	original_exception: str = field(default = None)
-	exception_message: str | List[str] = field(default = None)
-	exception_timestamp: str = field(default = None)
-
+@dataclass(frozen = True, slots = True)
+class BaseExceptionModel(IBaseExceptionModel):
+	custom_exception_type: str
+	original_exception_type: str
+	exception_message: str
+	exception_timestamp: str = field(default = datetime.now().strftime(format = '%Y-%m-%d %H:%M:%S'))
+	
 	def __str__(self) -> str:
 		return (f'\n---------\n'
-				f'Exception type: {self.custom_exception}\n'
-				f'Original exception type: {self.original_exception}\n'
-				f'Message: {BaseExceptionModel.__generate_message(self.exception_message)}\n'
-				f'Timestamp: {self.exception_timestamp}\n'
-				f'---------\n')
-
-	@staticmethod
-	def __generate_message(message: str | List[str]) -> str:
-		if isinstance(message, str):
-			return message
-
-		elif isinstance(message, list):
-			return ''.join(f'\n- {line}' for line in message)
-
-		else:
-			return str(message)
-
-
-if __name__ == '__main__':
-	print(BaseExceptionModel())
+		        f'Exception type: {self.custom_exception_type}\n'
+		        f'Original exception type: {self.original_exception_type}\n'
+		        f'Exception message: {self.exception_message}\n'
+		        f'Exception timestamp: {self.exception_timestamp}\n'
+		        f'---------\n')
+	
