@@ -1,11 +1,10 @@
 from typing import Tuple, Type, Any
 
+from src.share.verify.message.message_data_type import from_data_type, from_length, from_unexpected
+
 
 def check_data_type(checked_value: Any,
                     reference_data_type: Type[Any]) -> Tuple[bool, str | None, Type[Exception] | None]:
-
-    from src.share.verify.message.message_data_type import from_data_type
-    from src.share.verify.message.message_unexpected import from_unexpected
 
     try:
         if not isinstance(checked_value, reference_data_type):
@@ -27,13 +26,9 @@ def check_data_type(checked_value: Any,
 def check_data_types(*reference_data_types: Type[Any],
                      checked_value: Any) -> Tuple[bool, str | None, Type[Exception] | None]:
 
-    from src.share.verify.message.message_data_type import from_data_type
-    from src.share.verify.message.message_unexpected import from_unexpected
-    from src.share.verify.message.message_length import from_length_equal
-
     try:
         if len(reference_data_types) == 0:
-            _message: str = from_length_equal(
+            _message: str = from_length(
                 checked_length = len(reference_data_types),
                 reference_length = 0,
             )
