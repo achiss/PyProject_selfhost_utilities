@@ -5,8 +5,7 @@ from uuid import UUID
 def convert_data(uuid_string: UUID | str) -> Tuple[bool, str | UUID, Type[Exception] | None]:
 	
 	from src.app_model.processor_id.share.base_method.convert_data_type import uuid_to_str, str_to_uuid
-	from src.app_model.processor_id.share.message.module_message import UNEXPECTED_ERROR
-	
+
 	_base_message: str = 'converting ID failed'
 	
 	try:
